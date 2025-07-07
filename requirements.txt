@@ -1,0 +1,14 @@
+streamlit
+google-generativeai
+transformers
+sentencepiece
+torch
+gtts
+speechrecognition
+python-dotenv
+langchain
+langchain-community
+pypdf
+faiss-cpu
+sentence-transformers
+huggingface-hub
