@@ -49,7 +49,7 @@
 ## 🖼️ UI Preview
 
 <p align="center">
-  <img src="https://your-screenshot-link-if-any.com" width="700"/>
+  <img width="1919" height="846" alt="Image" src="https://github.com/user-attachments/assets/4bfa1133-ca89-4677-8681-7abe538d3c39" />
 </p>
 
 ---
