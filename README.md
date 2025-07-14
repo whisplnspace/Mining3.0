@@ -145,8 +145,47 @@ streamlit run main.py
 
 ---
 
-### 🎨 **Mermaid Flowchart: MinerlexAI 3.0 Architecture**
+### 🎨 **MinerlexAI 3.0 Sequence Diagram**
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant UI as Streamlit UI
+    participant PDF as PDF Processor
+    participant FAISS as Vector Store
+    participant RAG as Ollama RAG
+    participant Gemini as Gemini API
+    participant Rerank as SentenceTransformer
+    participant MBart as MBart Translator
+    participant gTTS as gTTS Audio
+    participant Output as Output Display
+
+    User->>UI: Open App
+    User->>UI: Upload PDF
+    UI->>PDF: Extract and Split Text
+    PDF->>FAISS: Create Vector Store
+
+    User->>UI: Ask Question / Speak
+    UI->>FAISS: Check if PDF is Indexed
+    alt Context Available
+        UI->>FAISS: Retrieve Relevant Chunks
+        UI->>RAG: Generate Multiple Answers
+        RAG->>Rerank: Rerank with MiniLM
+        Rerank->>UI: Return Best Answer
+    else No Context
+        UI->>Gemini: Query via Gemini API
+        Gemini->>UI: Return Answer
+    end
+
+    UI->>MBart: Translate Answer
+    MBart->>gTTS: Generate Audio (EN & Local)
+    gTTS->>Output: Return Audio Files
+    UI->>Output: Display Answer + Audio
+
+
+```
+---
+### 🎨 **MinerlexAI 3.0 Flowchart Diagram**
 ```mermaid
 flowchart TD
 
@@ -203,10 +242,8 @@ flowchart TD
         BestAnswer --> Translate --> AudioEN
         Translate --> AudioLocal
     end
-
 ```
 ---
-
 ### 🔍 Key Components in Flow:
 
 | Component                        | Role                                                 |
@@ -279,7 +316,9 @@ This project is licensed under the [MIT License](LICENSE).
 
 
 <p align="center">
-  <em>Made with 🇮🇳 for a better, just, and AI-powered future.</em>
+  <strong>🤖 MinerlexAI</strong><br>
+  <em>Built with 🇮🇳 vision, powered by AI, for a future that's smarter, fairer, and just.</em>
 </p>
-```
+
+
 
